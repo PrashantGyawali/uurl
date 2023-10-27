@@ -18,3 +18,7 @@ border-bottom: 1px solid rgb(255, 145, 0) !important;
     font-size: 18px;
     text-align: center;
 }
+
+.w-fit-content{
+    width: fit-content !important;
+}

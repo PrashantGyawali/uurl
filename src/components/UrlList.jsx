@@ -9,7 +9,7 @@ export default function UrlList(){
 
     const [links,updateLinks]=useState([]);
     
-    useEffect(()=>getUrls(),[]);
+    useEffect(()=>{getUrls();},[]);
 
     const getUrls=async()=>{
         let urls=await fetch("http://localhost:5000/links",{method:"GET"});
@@ -20,6 +20,13 @@ export default function UrlList(){
 
     return(
         <Container className="container-sm-fluid">
+
+            <ListGroup horizontal data-bs-theme="dark">
+                    <ListGroup.Item className="d-flex w-100" variant="primary">Urls</ListGroup.Item>   
+                    <ListGroup.Item className="d-flex p-2 w-fit-content btn btn-primary"  variant="primary" onClick={()=>{updateLinks(links.slice().reverse())}}>Clicks</ListGroup.Item>   
+
+            </ListGroup>
+
         <ListGroup as="ol" numbered data-bs-theme="dark">
         {links && links.map((link,index) => {
             return (
