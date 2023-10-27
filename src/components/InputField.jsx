@@ -9,7 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import { motion } from "framer-motion"
 
-export default function Inputfield(){
+export default function Inputfield(props){
 
     const [longurl,setLongUrl]=useState("");
 
@@ -43,8 +43,8 @@ export default function Inputfield(){
         let shortenedurldata=await response.json()
         console.log(shortenedurldata);
         setNewShortenedUrl(shortenedurldata);
+        props.updateShortenedLinks([...props.shortenedlinks,shortenedurldata])
         // parses JSON response into native JavaScript objects
-
     };
 
 
