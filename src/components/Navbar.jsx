@@ -9,8 +9,9 @@ export default function NavbarComponent(){
 return (
 <Navbar expand="sm" className="bg-body-tertiary m-0 pe-3 pt-0 d-flex" data-bs-theme="dark">
         <Container className='p-3 m-0 pt-0 pb-0' style={{width:"fit-content"}}>
-            <Navbar.Brand href="/"><span style={{fontSize:"35px"}} className='text-warning'>uurl:<span style={{fontSize:"40px"}}>/<>/</></span></span></Navbar.Brand>
+            <Navbar.Brand href="/"><span className='text-warning fs-35px'>uurls:<span className='fs-40px'>/<>/</></span></span></Navbar.Brand>
         </Container>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className='align-self-end'>
           <Nav className="ms-auto ps-3 me-3" >

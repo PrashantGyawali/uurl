@@ -5,3 +5,16 @@ border-bottom: 1px solid rgb(255, 145, 0) !important;
     border-bottom: 1px solid rgba(255, 145, 0 ,0) !important;
 }
 
+.fs-40px{
+    font-size: 40px;
+}
+.fs-35px{
+    font-size: 35px;
+}
+.fs-10px{
+    font-size: 10px;
+}
+.fs-18px{
+    font-size: 18px;
+    text-align: center;
+}

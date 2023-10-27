@@ -3,14 +3,15 @@ import './static/App.css'
 import NavbarComponent from './components/Navbar';
 import Inputfield from './components/InputField';
 import UrlList from './components/UrlList';
+import useLocalStorage from './hooks/localstorage';
 
 function App() {
-  const [test,setTest]=useState(0);
+  const [shortenedlinks,updateShortenedLinks]=useLocalStorage("shortenedlinks",{});
   return (
     <>
     <NavbarComponent/>
     <Inputfield/>
-    {/* <UrlList/> */}
+    <UrlList/>
     </>
   )
 }
