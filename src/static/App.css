@@ -14,6 +14,9 @@ border-bottom: 1px solid rgb(255, 145, 0) !important;
 .fs-10px{
     font-size: 10px;
 }
+.fs-12px{
+    font-size: 12px !important;
+}
 .fs-18px{
     font-size: 18px;
     text-align: center;
@@ -22,3 +25,11 @@ border-bottom: 1px solid rgb(255, 145, 0) !important;
 .w-fit-content{
     width: fit-content !important;
 }
+
+#dropdown-split-basic
+{background-color:rgb(3,22,51);
+    border-color:rgb(8,66,152);
+}
+#dropdown-split-basic:hover{
+background-color: rgb(11,94,216);
+} 

@@ -43,7 +43,7 @@ export default function Inputfield(props){
         let shortenedurldata=await response.json()
         console.log(shortenedurldata);
         setNewShortenedUrl(shortenedurldata);
-        props.updateShortenedLinks([...props.shortenedlinks,shortenedurldata])
+        props.updateShortenedLinks([shortenedurldata,...props.shortenedlinks,])
         // parses JSON response into native JavaScript objects
     };
 
@@ -57,7 +57,7 @@ export default function Inputfield(props){
           aria-label="Url to shorten"
           type="text" name="longurl" required value={longurl} onChange={(e)=>setLongUrl(e.target.value)}
         />
-        <Button type="submit" variant="primary" id="button-addon2" >
+        <Button type="submit" variant="primary" id="shorten" >
           Shorten
         </Button>
       </InputGroup>
