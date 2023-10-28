@@ -7,7 +7,12 @@ import Button from "react-bootstrap/Button"
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import { motion } from "framer-motion"
+import Typewriter from './Typewriter';
+import Scroller from './Scroller';
+
 
 export default function Inputfield(props){
 
@@ -15,7 +20,9 @@ export default function Inputfield(props){
 
     const[newShortenedUrl,setNewShortenedUrl]=useState();
 
-
+    const animationurls=["https://www.youtube.com/watch?v=y6120QOlsfU&pp=ygUQZGFydWRlIHNhbmRzdG9ybQ%3D%3D","https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs","https://www.youtube.com/watch?v=MSepOYJxB64&pp=ygUJd2V0IGhhbmRz"]
+    const scrollerurls=["sand","rick","wets"];
+    
     const onSubmit=async(e)=>{
         //make the shorturl result div disappear and appear again
         setNewShortenedUrl("");
@@ -28,7 +35,6 @@ export default function Inputfield(props){
 
         console.log("data:",data);
 
-
         const response= await fetch("http://localhost:5000", {
             method: "POST",
             mode: "cors", // no-cors, *cors, same-origin
@@ -39,7 +45,6 @@ export default function Inputfield(props){
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         });
 
-
         let shortenedurldata=await response.json()
         console.log(shortenedurldata);
         setNewShortenedUrl(shortenedurldata);
@@ -48,10 +53,24 @@ export default function Inputfield(props){
     };
 
 
-   return (
-    <div className='container ms-auto me-auto row p-1 d-flex flex-column' style={{height:"40vh"}}>
+   return (<>
+    <div className='container ms-auto me-auto row p-1 d-flex flex-column justify-content-center' style={{height:"40vh"}}>
+      <div className="container">
+        <div className="container row bg-dark-blue ms-auto me-auto">
+
+          <div className="col-12 col-sm-4 d-flex">
+            <div className="text-warning fs-5 align-self-center">uurl.com.np/</div>
+            <div className="text-white text-start align-self-center"><Scroller texts={scrollerurls} timeperiod={2700}/></div>
+          </div>
+
+          <div className="col-12 col-sm-8 text-white text-break text-truncate align-self-center"><Typewriter texts={animationurls} timeperiod={1100} delay={380} infinite/></div>
+
+        </div>
+
+      </div>
+
     <Form onSubmit={onSubmit} >
-      <InputGroup className="mt-5 col-12 col-sm-10 col-md-8 col-lg-6" data-bs-theme="dark">
+      <InputGroup className="col-12 col-sm-10 col-md-8 col-lg-6" data-bs-theme="dark">
         <Form.Control
           placeholder="Longurl"
           aria-label="Url to shorten"
@@ -83,5 +102,6 @@ export default function Inputfield(props){
 }
     </Form>
     </div>
+    </>
   );
 }

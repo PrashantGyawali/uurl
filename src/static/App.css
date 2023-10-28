@@ -27,9 +27,15 @@ border-bottom: 1px solid rgb(255, 145, 0) !important;
 }
 
 #dropdown-split-basic
-{background-color:rgb(3,22,51);
+{   background-color:rgb(3,22,51);
     border-color:rgb(8,66,152);
 }
 #dropdown-split-basic:hover{
 background-color: rgb(11,94,216);
 } 
+
+.bg-dark-blue{
+    background-color:rgba(128, 0, 255, 0.52);
+    border:0.5px solid rgba(255, 255, 0, 0.5);
+    border-radius: 6px;
+}
