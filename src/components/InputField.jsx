@@ -35,7 +35,7 @@ export default function Inputfield(props){
 
         console.log("data:",data);
 
-        const response= await fetch("http://localhost:5000", {
+        const response= await fetch("https://uurl.onrender.com", {
             method: "POST",
             mode: "cors", // no-cors, *cors, same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -59,7 +59,8 @@ export default function Inputfield(props){
         <div className="container row bg-dark-blue ms-auto me-auto">
 
           <div className="col-12 col-sm-4 d-flex">
-            <div className="text-warning fs-5 align-self-center">uurl.com.np/</div>
+            {/* For now it will be this render domain, i would like a uurl.com.np domain but not sure if i will get it */}
+            <div className="text-warning fs-5 align-self-center">uurl.onrender.com/</div>
             <div className="text-white text-start align-self-center"><Scroller texts={scrollerurls} timeperiod={2700}/></div>
           </div>
 
@@ -89,8 +90,8 @@ export default function Inputfield(props){
             <ListGroup.Item className='text-warning ps-3 pt-1 pb-1' style={{borderTop:"0px"}} variant="success">Your shortened URL :</ListGroup.Item>
             <ListGroup.Item  className="d-flex justify-content-between align-items-center bg-dark">
                 <div className="ms-2 me-auto d-flex flex-column text-muted">
-                <a className="fw-bold fs-5" href={`http://localhost:5000/${newShortenedUrl.shorturl}`}>{newShortenedUrl.shorturl}</a>
-                <span className="fs-10px text-break">{newShortenedUrl.longurl}</span>
+                <a className="fw-bold fs-5" href={`https://uurl.onrender.com/${newShortenedUrl.shorturl}`}>{newShortenedUrl.shorturl}</a>
+                <span className="fs-10px text-break">{"uurl.onrender.com/"+newShortenedUrl.longurl}</span>
                 </div>
                 <Badge bg="primary" pill>
                 <span className="fs-18px">Copy</span>

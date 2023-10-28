@@ -37,7 +37,7 @@ export default function SelfUrlList(props){
                 return (<motion.div key={index} {...motionobj}>
                     <ListGroup.Item as="li" className="d-flex justify-content-between align-items-center" >
                         <div className="ms-2 me-auto d-flex flex-column text-muted text-break">
-                        <a className="fw-bold fs-5 text-break" href={`http://localhost:5000/${link.shorturl}`}>{link.shorturl}</a>
+                        <a className="fw-bold fs-5 text-break" href={`https://uurl.onrender.com/${link.shorturl}`}>uurl.onrender.com/{link.shorturl}</a>
                         <span className="fs-10px text-break">{link.longurl}</span>
                         </div>
                         <Badge bg="secondary" pill>
@@ -54,3 +54,5 @@ export default function SelfUrlList(props){
     </>
     )
 }
+
+// want to get a uurl.com.np or sth domain to host it 

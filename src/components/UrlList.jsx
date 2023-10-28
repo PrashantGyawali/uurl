@@ -39,7 +39,7 @@ const Badgetext=(props)=>{
     </>
 }
     const getUrls=async()=>{
-        let urls=await fetch("http://localhost:5000/links",{method:"GET"});
+        let urls=await fetch("https://uurl.onrender.com/links",{method:"GET"});
         urls=await urls.json();
         console.log(urls);
         updateLinks(urls);
@@ -70,7 +70,7 @@ const Badgetext=(props)=>{
             return (
             <ListGroup.Item as="li" className={`d-flex justify-content-between  ${sortparam!="clicks"?" flex-column flex-sm-row align-items-end align-items-sm-center":"align-items-center"}`} key={index}>
                 <div className="ms-2 me-auto d-flex flex-column text-muted text-break">
-                <a className="fw-bold fs-5 text-break" href={`http://localhost:5000/${link.shorturl}`}>{link.shorturl}</a>
+                <a className="fw-bold fs-5 text-break" href={`https://uurl.onrender.com/${link.shorturl}`}>uurl.onrender.com/{link.shorturl}</a>
                 <span className="fs-10px text-break">{link.longurl}</span>
                 </div>
                 <Badge bg={sortparam=="clicks"?"primary":"secondary"} pill className="text-break">
