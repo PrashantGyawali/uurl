@@ -45,3 +45,7 @@ background-color: rgb(11,94,216);
         display: flex;
     }
 }
+
+.cursor-pointer{
+    cursor: pointer;
+}

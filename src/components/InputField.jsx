@@ -104,7 +104,7 @@ export default function Inputfield(props){
                 <span className="fs-10px text-break">{"uurl.onrender.com/"+newShortenedUrl.longurl}</span>
                 </div>
                 <Badge bg="primary" pill onClick={copyLink}>
-                <span className="fs-18px">Copy</span>
+                <span className="fs-18px cursor-pointer">Copy</span>
                 </Badge>
             </ListGroup.Item>
             </ListGroup>
@@ -113,7 +113,7 @@ export default function Inputfield(props){
 }
     </Form>
 
-    
+
     {    !connection &&  <>
         <motion.div initial={{ opacity: 0, scaleX: 0.5, scaleY:0}}
         animate={{ opacity: 1, scaleX:1, scaleY:1}}
