@@ -35,7 +35,7 @@ export default function SelfUrlList(props){
         {
             modifiedShortenedLinks.map((link,index) => {
                 return (<motion.div key={index} {...motionobj}>
-                    <ListGroup.Item as="li" className="d-flex justify-content-between align-items-center" >
+                    <ListGroup.Item as="li" className="d-flex justify-content-between flex-column flex-sm-row align-items-end align-items-sm-center" >
                         <div className="ms-2 me-auto d-flex flex-column text-muted text-break">
                         <a className="fw-bold fs-5 text-break" href={`https://uurl.onrender.com/${link.shorturl}`}>uurl.onrender.com/{link.shorturl}</a>
                         <span className="fs-10px text-break">{link.longurl}</span>

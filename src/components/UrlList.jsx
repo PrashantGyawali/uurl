@@ -28,7 +28,9 @@ export default function UrlList(){
         else{
             temp.sort((a,b)=>b[sortparam]-a[sortparam]);
         }
-        console.log("sorted links by:",sortparam,temp);
+        
+        // console.log("sorted links by:",sortparam,temp);
+
         updateSortparam(sortparam);
         updateLinks([...temp]);
     };
@@ -39,9 +41,9 @@ const Badgetext=(props)=>{
     </>
 }
     const getUrls=async()=>{
-        let urls=await fetch("https://uurl.onrender.com/links",{method:"GET"});
+        let urls=await fetch("https://uurl.onrender.com/links",{method:"GET"}).catch((err)=>{console.log("The server may take some time to start",err)});
         urls=await urls.json();
-        console.log(urls);
+        // console.log(urls);
         updateLinks(urls);
     }
 

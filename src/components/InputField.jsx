@@ -17,10 +17,8 @@ import Scroller from './Scroller';
 export default function Inputfield(props){
 
     const [longurl,setLongUrl]=useState("");
-
     const[newShortenedUrl,setNewShortenedUrl]=useState();
 
-    const animationurls=["https://www.youtube.com/watch?v=y6120QOlsfU&pp=ygUQZGFydWRlIHNhbmRzdG9ybQ%3D%3D","https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs","https://www.youtube.com/watch?v=MSepOYJxB64&pp=ygUJd2V0IGhhbmRz"]
     const scrollerurls=["sand","rick","wets"];
     
     const onSubmit=async(e)=>{
@@ -29,12 +27,9 @@ export default function Inputfield(props){
 
         //this will prevent redirecting
         e.preventDefault();
-        console.log("longurl",longurl);
+        // console.log("longurl",longurl);
 
         const data={"longurl":longurl};
-
-        console.log("data:",data);
-
         const response= await fetch("https://uurl.onrender.com", {
             method: "POST",
             mode: "cors", // no-cors, *cors, same-origin
@@ -53,18 +48,24 @@ export default function Inputfield(props){
     };
 
 
+    const copyLink=()=>{
+      navigator.clipboard.writeText("uurl.onrender.com/"+newShortenedUrl.longurl);
+    }
+
+
+
    return (<>
     <div className='container ms-auto me-auto row p-1 d-flex flex-column justify-content-center' style={{height:"40vh"}}>
       <div className="container">
         <div className="container row bg-dark-blue ms-auto me-auto">
 
-          <div className="col-12 col-sm-4 d-flex">
+          <div className="col-12 col-sm-5 col-md-4 d-vsm-flex">
             {/* For now it will be this render domain, i would like a uurl.com.np domain but not sure if i will get it */}
-            <div className="text-warning fs-5 align-self-center">uurl.onrender.com/</div>
+            <div className="text-warning fs-6 align-self-center">uurl.onrender.com/</div>
             <div className="text-white text-start align-self-center"><Scroller texts={scrollerurls} timeperiod={2700}/></div>
           </div>
 
-          <div className="col-12 col-sm-8 text-white text-break text-truncate align-self-center"><Typewriter texts={animationurls} timeperiod={1100} delay={380} infinite/></div>
+          <div className="col-12 col-sm-7 col-md-8 text-white text-break text-truncate align-self-center"><Typewriter timeperiod={1100} delay={380} infinite/></div>
 
         </div>
 
@@ -88,12 +89,12 @@ export default function Inputfield(props){
         transition={{ duration: 0.5 }}>
             <ListGroup data-bs-theme="dark" >
             <ListGroup.Item className='text-warning ps-3 pt-1 pb-1' style={{borderTop:"0px"}} variant="success">Your shortened URL :</ListGroup.Item>
-            <ListGroup.Item  className="d-flex justify-content-between align-items-center bg-dark">
+            <ListGroup.Item  className="d-sm-flex justify-content-between align-items-center bg-dark">
                 <div className="ms-2 me-auto d-flex flex-column text-muted">
-                <a className="fw-bold fs-5" href={`https://uurl.onrender.com/${newShortenedUrl.shorturl}`}>{newShortenedUrl.shorturl}</a>
+                <a className="fw-bold fs-5" href={`https://uurl.onrender.com/${newShortenedUrl.shorturl}`}><span className='fs-12px'>uurl.onrender.com/</span>{newShortenedUrl.shorturl}</a>
                 <span className="fs-10px text-break">{"uurl.onrender.com/"+newShortenedUrl.longurl}</span>
                 </div>
-                <Badge bg="primary" pill>
+                <Badge bg="primary" pill onClick={copyLink}>
                 <span className="fs-18px">Copy</span>
                 </Badge>
             </ListGroup.Item>

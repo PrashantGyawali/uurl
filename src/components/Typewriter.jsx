@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react';
 
-const Typewriter = ({ texts, timeperiod, delay, infinite }) => {
+const Typewriter = ({ timeperiod, delay, infinite }) => {
     const [currentUrl, setCurrentUrl] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
-  if(texts?.length<1)
-  {
-    texts=["https://www.youtube.com/watch?v=y6120QOlsfU&pp=ygUQZGFydWRlIHNhbmRzdG9ybQ%3D%3D","https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs","https://www.youtube.com/watch?v=MSepOYJxB64&pp=ygUJd2V0IGhhbmRz"]
-  }
-
+  
   useEffect(() => {
+    let texts=["https://www.youtube.com/watch?v=y6120QOlsfU&pp=ygUQZGFydWRlIHNhbmRzdG9ybQ%3D%3D","https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs","https://www.youtube.com/watch?v=MSepOYJxB64&pp=ygUJd2V0IGhhbmRz"]
     let timeout;
-    if (currentTextIndex < texts[currentUrl].length) {
+    if (currentTextIndex < texts[currentUrl||0].length) {
       timeout = setTimeout(() => {
         setCurrentText(prevText => prevText + texts[currentUrl][currentTextIndex]);
         setCurrentTextIndex(prevIndex => prevIndex + 1);
@@ -22,8 +19,7 @@ const Typewriter = ({ texts, timeperiod, delay, infinite }) => {
                 setTimeout(()=>{
                     setCurrentUrl((currentUrl)=>currentUrl+1);
                     setCurrentTextIndex(0);
-                    setCurrentText('');},delay+1000);
-                
+                    setCurrentText('');},delay+1000);       
     }
     else if(infinite)
     {setTimeout(()=>{
@@ -33,7 +29,7 @@ const Typewriter = ({ texts, timeperiod, delay, infinite }) => {
     }
 
     return () => {clearTimeout(timeout)}
-  }, [currentTextIndex, timeperiod, infinite, texts, delay]);
+  }, [currentTextIndex, timeperiod, infinite,delay]);
 
   return <>{currentText}</>;
 };
