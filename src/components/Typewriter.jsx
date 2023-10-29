@@ -29,7 +29,7 @@ const Typewriter = ({ timeperiod, delay, infinite }) => {
     }
 
     return () => {clearTimeout(timeout)}
-  }, [currentTextIndex, timeperiod, infinite,delay]);
+  }, [currentTextIndex, timeperiod,infinite,delay]);
 
   return <>{currentText}</>;
 };
