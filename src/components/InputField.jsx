@@ -18,17 +18,19 @@ export default function Inputfield(props){
 
     const [longurl,setLongUrl]=useState("");
     const[newShortenedUrl,setNewShortenedUrl]=useState();
+    const [connection,setConnection]=useState(true);
 
     const scrollerurls=["sand","rick","wets"];
     
     const onSubmit=async(e)=>{
         //make the shorturl result div disappear and appear again
         setNewShortenedUrl("");
+        setConnection(true);
 
         //this will prevent redirecting
         e.preventDefault();
         // console.log("longurl",longurl);
-
+      try{
         const data={"longurl":longurl};
         const response= await fetch("https://uurl.onrender.com", {
             method: "POST",
@@ -40,11 +42,18 @@ export default function Inputfield(props){
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         });
 
-        let shortenedurldata=await response.json()
-        console.log(shortenedurldata);
-        setNewShortenedUrl(shortenedurldata);
-        props.updateShortenedLinks([shortenedurldata,...props.shortenedlinks,])
-        // parses JSON response into native JavaScript objects
+
+          let shortenedurldata=await response.json();
+          console.log(shortenedurldata);
+          setNewShortenedUrl(shortenedurldata);
+          props.updateShortenedLinks([shortenedurldata,...props.shortenedlinks])
+          // parses JSON response into native JavaScript objects
+        
+      }
+      catch(err){
+        console.log(err);
+        setConnection(false);
+      }
     };
 
 
@@ -54,8 +63,8 @@ export default function Inputfield(props){
 
 
 
-   return (<>
-    <div className='container ms-auto me-auto row p-1 d-flex flex-column justify-content-center' style={{height:"40vh"}}>
+   return (<div className='mb-3' style={{minHeight:"40vh"}}>
+    <div className='container ms-auto me-auto row p-1 d-vsm-flex flex-column justify-content-center' >
       <div className="container">
         <div className="container row bg-dark-blue ms-auto me-auto">
 
@@ -103,7 +112,29 @@ export default function Inputfield(props){
       </>
 }
     </Form>
+
+    
+    {    !connection &&  <>
+        <motion.div initial={{ opacity: 0, scaleX: 0.5, scaleY:0}}
+        animate={{ opacity: 1, scaleX:1, scaleY:1}}
+        transition={{ duration: 0.5 }}>
+            <ListGroup data-bs-theme="dark" >
+            {/* <ListGroup.Item className='text-warning ps-3 pt-1 pb-1' style={{borderTop:"0px"}} variant="success">Your shortened URL :</ListGroup.Item> */}
+            <ListGroup.Item  className="d-sm-flex justify-content-between align-items-center bg-dark">
+                <div className="ms-2 me-auto d-flex flex-column text-muted">
+                <div className="fw-bold fs-18 text-danger">!! Could not connect !!</div>
+                <span className="fs-10px text-break text-truncate">Check if you internet connection and wait patiently for our servers to come back online</span>
+                </div>
+                <Badge bg="danger" pill>
+                <span className="fs-18px">!</span>
+                </Badge>
+            </ListGroup.Item>
+            </ListGroup>
+        </motion.div>
+      </>
+  }
     </div>
-    </>
+
+    </div>
   );
 }

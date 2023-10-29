@@ -28,7 +28,7 @@ export default function UrlList(){
         else{
             temp.sort((a,b)=>b[sortparam]-a[sortparam]);
         }
-        
+
         // console.log("sorted links by:",sortparam,temp);
 
         updateSortparam(sortparam);
@@ -52,7 +52,7 @@ const Badgetext=(props)=>{
        <Container className="container-sm-fluid">
         {links.length && <>
         <ListGroup horizontal data-bs-theme="dark">
-                    <ListGroup.Item className="d-flex w-100" variant="primary">Urls</ListGroup.Item>   
+                    <ListGroup.Item className="d-flex w-100" variant="primary">Recent Urls</ListGroup.Item>   
                    
             <Dropdown as={ButtonGroup} data-bs-theme="dark">
             <ListGroup.Item className="d-flex p-2 w-fit-content btn btn-primary"  variant="primary" onClick={()=>{updateLinks(links.slice().reverse())}}>{sortparam=="clicks"?"Clicks":"Date"}</ListGroup.Item>      

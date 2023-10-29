@@ -16,7 +16,7 @@ return (
         <Navbar.Collapse id="basic-navbar-nav" className='align-self-end'>
           <Nav className="ms-auto ps-3 me-3" >
             <Nav.Link href="https://github.com/PrashantGyawali" className="text-left btn text-light btn-dark border-underline">Github</Nav.Link>      
-            <Nav.Link href="#home"  className="btn text-light btn-dark border-underline">CodeWrite</Nav.Link>
+            <Nav.Link href="https://prashantgyawali.github.io/CodeWrite/"  className="btn text-light btn-dark border-underline">CodeWrite</Nav.Link>
             <Nav.Link href="https://gyawaliprashant.com.np/" className="btn text-light btn-dark border-underline">myLearningEra</Nav.Link>
           </Nav>
         </Navbar.Collapse>
