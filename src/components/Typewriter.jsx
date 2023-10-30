@@ -31,7 +31,7 @@ const Typewriter = ({ timeperiod, delay, infinite }) => {
     return () => {clearTimeout(timeout)}
   }, [currentTextIndex, timeperiod,infinite,delay]);
 
-  return <>{currentText}</>;
+  return <><span style={{color:"rgba(0,0,0,0)",userSelect: "none"}}>.</span>{currentText}</>;
 };
 
 export default Typewriter;
