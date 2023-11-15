@@ -58,7 +58,7 @@ export default function Inputfield(props){
 
 
     const copyLink=()=>{
-      navigator.clipboard.writeText("uurl.onrender.com/"+newShortenedUrl.longurl);
+      navigator.clipboard.writeText("uurl.onrender.com/"+newShortenedUrl.shorturl);
     }
 
 
