@@ -6,8 +6,10 @@ import "../static/App.css"
 
 
 export default function NavbarComponent(){
+
+
 return (
-<Navbar expand="sm" className="bg-body-tertiary m-0 pe-3 pt-0 d-flex" data-bs-theme="dark">
+<Navbar expand="sm" className="bg-body-tertiary m-0 pe-3 pt-0 d-flex borderBottomWhite" data-bs-theme="dark">
         <Container className='p-3 m-0 pt-0 pb-0' style={{width:"fit-content"}}>
             <Navbar.Brand href="/"><span className='text-warning fs-35px'>uurls:<span className='fs-40px'>/<>/</></span></span></Navbar.Brand>
         </Container>

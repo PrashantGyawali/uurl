@@ -63,7 +63,7 @@ export default function Inputfield(props){
 
 
 
-   return (<div className='mb-3' style={{minHeight:"40vh"}}>
+   return (<div className='mb-3 mt-3' style={{minHeight:"40vh"}}>
     <div className='container ms-auto me-auto row p-1 d-vsm-flex flex-column justify-content-center' >
       <div className="container">
         <div className="container row bg-dark-blue ms-auto me-auto">
@@ -71,7 +71,9 @@ export default function Inputfield(props){
           <div className="col-12 col-sm-5 col-md-4 d-vsm-flex">
             {/* For now it will be this render domain, i would like a uurl.com.np domain but not sure if i will get it */}
             <div className="text-warning fs-6 align-self-center">uurl.onrender.com/</div>
-            <div className="text-white text-start align-self-center"><Scroller texts={scrollerurls} timeperiod={2700}/></div>
+                <div className="text-white text-start align-self-center">
+                      <Scroller texts={scrollerurls} timeperiod={2700}/>
+                </div>
           </div>
 
           <div className="col-12 col-sm-7 col-md-8 text-white text-break text-truncate align-self-center"><Typewriter timeperiod={1100} delay={380} infinite/></div>
